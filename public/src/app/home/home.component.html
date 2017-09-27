@@ -1,1 +1,11 @@
-<h1>Home component</h1>
+<form #f="ngForm" (submit)="login()">
+    <label for="name">Your Name:</label>
+    <input type="text" name="name" required pattern="[a-zA-Z\s]+" minlength="2" [(ngModel)]="user.name" #name='ngModel'><br>
+    <button type="submit" [disabled]="f.invalid">Login</button><br>
+
+    <div class="errors" *ngIf="name.invalid && (name.dirty || name.touched)">
+        <div class="errors" *ngIf="name?.errors.required">Name is required.</div>
+        <div class="errors" *ngIf="name?.errors.minlength">Name should be at least 2 characters long.</div>
+        <div class="errors" *ngIf="name?.errors.pattern">Name should be letters only.</div>
+    </div>
+</form>

@@ -1,0 +1,13 @@
+.errors{
+    color: red;
+    display: inline-block;
+}
+#wide{
+    width: 50%;
+}
+input, label{
+    font-size: 1.3em;
+}
+button{
+    font-size: 1.3em;
+}

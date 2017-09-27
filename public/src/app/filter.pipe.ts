@@ -9,9 +9,8 @@ export class FilterPipe implements PipeTransform {
     if (arg && arg.length > 0) {
       return items.filter(item => {
         const argNum = Number(arg);
-        return item.userFirstName.toUpperCase().includes(arg.toUpperCase()) ||
-          item.score === argNum ||
-          ((item.score / 3) * 100).toString().includes((argNum).toString());
+        return item.creator.toUpperCase().includes(arg.toUpperCase()) ||
+        item.question.toUpperCase().includes(arg.toUpperCase())
       });
     } else {
       return items;

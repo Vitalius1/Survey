@@ -1,0 +1,36 @@
+<h4><a [routerLink]="['','dashboard']">Go to Polls</a></h4>
+<h2>{{ survey.question }}</h2>
+<p>Click the Vote button to choose one.</p>
+<div id="my-table">
+
+  <table>
+    <thead>
+      <th class="option-column">Option</th>
+      <th class="vote-column">Current Count of Votes</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="option-column">{{ survey.option1 }}</td>
+        <td class="vote-column">{{ survey.option1count }}</td>
+        <td><button (click)="addVote(1)">Vote</button></td>
+      </tr>
+      <tr>
+        <td class="option-column">{{ survey.option2 }}</td>
+        <td class="vote-column">{{ survey.option2count }}</td>
+        <td><button (click)="addVote(2)">Vote</button></td>
+      </tr>
+      <tr>
+        <td class="option-column">{{ survey.option3 }}</td>
+        <td class="vote-column">{{ survey.option3count }}</td>
+        <td><button (click)="addVote(3)">Vote</button></td>
+      </tr>
+      <tr>
+        <td class="option-column">{{ survey.option4 }}</td>
+        <td class="vote-column">{{ survey.option4count }}</td>
+        <td><button (click)="addVote(4)">Vote</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

@@ -1,0 +1,35 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 1.1em;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+th{
+    background-color: #CCCCCC
+}
+
+tr:nth-child(odd){
+    background-color: #f2f2f2
+}
+#my-table{
+    border: 2px solid black;
+}
+.name-column{
+    border-right: 1px solid black;
+}
+.q-column{
+    border-right: 1px solid black;
+}
+.date-column{
+    border-right: 1px solid black;
+}
+button{
+    border: none;
+    color: #0A50A1;
+    text-decoration: underline;
+    background-color: transparent;
+}

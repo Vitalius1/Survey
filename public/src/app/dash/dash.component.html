@@ -1,0 +1,29 @@
+<h4><a [routerLink]="['','create']">Create a New Poll</a> | <a href="#">LogOut</a></h4>
+
+<h1>Current Polls:</h1>
+
+
+Search: <input type="text" [(ngModel)]="searchWord"><i>(by Name or by Question)</i><br><br>
+
+
+
+<div id="my-table">
+
+  <table>
+    <thead>
+      <th class="name-column">Name</th>
+      <th class="q-column">Survey Question</th>
+      <th class="date-column">Date Posted</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let s of allSurveys | filter : searchWord">
+        <td class="name-column">{{ s.creator }}</td>
+        <td class="q-column"><a [routerLink]="['', 'poll', s._id]">{{ s.question }}</a></td>
+        <td class="date-column">{{ stringAsDate(s.createdAt) | date: "MMMM dd yyyy" }}</td>
+        <td><button *ngIf="s.creator === username" (click)="deleteSurvey(s._id)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
