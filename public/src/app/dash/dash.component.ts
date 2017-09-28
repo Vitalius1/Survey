@@ -31,4 +31,8 @@ export class DashComponent implements OnInit {
   stringAsDate(dateStr: string) {
     return new Date(dateStr);
   }
+
+  logout(){
+    this._userService.logout();
+  }
 }

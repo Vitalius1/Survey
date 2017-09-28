@@ -11,12 +11,13 @@ path = require('path'); // GLOBAL VARIABLE
 // ----------- Static ---------------
 app.use(express.static(path.join(__dirname, '/public/dist')));
 
-// ---------- Session ---------------
-const session = require('express-session');
-app.use(session({ secret: 'mysecretkey' }));
 
 // require the mongoose configuration file which does the rest for us
 require('./server/config/mongoose.js');
+
+// ---------- Session ---------------
+session = require('express-session');
+app.use(session({ secret: 'mysecretkey', saveUninitialized: true, resave: true, }));
 
 // Routes now in folder config/server/routes.js
 var routes_setter = require('./server/config/routes.js');

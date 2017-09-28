@@ -9,19 +9,22 @@ export class UserService {
   userObserver = new BehaviorSubject(this.username);
 
   constructor(private _http: Http, private _router: Router) {
+    this.checkSession();
   }
 
-  // checkSession() {
-  //   this._http.get(`/checkSession.json`)
-  //     .subscribe(data => {
-  //       if (data.json().logged) {
-  //         this.username = data.json().username;
-  //         this.userObserver.next(this.username);
-  //       } else {
-  //         this._router.navigate(['', '']);
-  //       }
-  //     })
-  // }
+  checkSession() {
+    this._http.get(`/checkSession.json`)
+      .subscribe(data => {
+        console.log(data.json(), "%%%%^%^$$%^$%^^%$^%$")
+        if (data.json().logged) {
+
+          this.username = data.json().username;
+          this.userObserver.next(this.username);
+        } else {
+          this._router.navigate(['']);
+        }
+      })
+  }
 
   login(user) {
     console.log("service login reached");
@@ -33,6 +36,18 @@ export class UserService {
         this._router.navigate(['dashboard']);
       }, err => {
         console.log("Error login");
+      })
+  }
+
+  logout() {
+    console.log("logout in user SERvice reached");
+    this._http.delete(`/logout.json`)
+      .subscribe(data => {
+        if (data.json()) {
+          this._router.navigate(['']);
+        } else {
+          console.log("error logout");
+        }
       })
   }
 }

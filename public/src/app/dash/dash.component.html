@@ -1,11 +1,11 @@
-<h4><a [routerLink]="['','create']">Create a New Poll</a> | <a href="#">LogOut</a></h4>
+<h4><a [routerLink]="['','create']">Create a New Poll</a> | <button type="button" class="btn btn-link" (click)="logout()">LogOut</button></h4>
 
 <h1>Current Polls:</h1>
 
 
 Search: <input type="text" [(ngModel)]="searchWord"><i>(by Name or by Question)</i><br><br>
 
-
+<button (click)="check()">Check me</button>
 
 <div id="my-table">
 
